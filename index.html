@@ -8,13 +8,13 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <title>Конструктор карточек товаров — Яндекс Еда · Магазины</title>
 <style>:root{
-  --bg:#f5f5f2;--card:#fff;--ink:#1d1d1b;--mute:#6b6b66;--line:#e6e5df;
-  --accent:#ffd400;--accent-ink:#1d1d1b;--accent-soft:#fff6c2;
-  --ok:#1aa260;--ok-soft:#e4f6ec;--err:#e5484d;--err-soft:#fdecec;--warn:#b7791f;--warn-soft:#fff4dc;--info:#2f6fed;--info-soft:#e8f0ff;
-  --r:16px;--shadow:0 1px 2px rgba(0,0,0,.05),0 6px 20px rgba(0,0,0,.06);
+  --bg:#F5F4F2;--card:#fff;--ink:#21201F;--mute:#77746F;--line:#E8E6E2;
+  --accent:#FCE000;--accent-ink:#21201F;--accent-soft:#FFF7BF;
+  --ok:#029154;--ok-soft:#E5F5EC;--err:#E35539;--err-soft:#FDECE8;--warn:#B7791F;--warn-soft:#FFF4DC;--info:#2F6FED;--info-soft:#E8F0FF;
+  --r:24px;--shadow:none;--gray:rgba(92,90,87,.1);
 }
 *{box-sizing:border-box}
-html,body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 "YS Text","YandexSansText","Yandex Sans Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
 button,input,select,textarea{font:inherit;color:inherit}
 .hidden{display:none!important}
 
@@ -165,6 +165,79 @@ kbd{background:#f1f0ea;border:1px solid var(--line);border-bottom-width:2px;bord
 
 .pending{margin-top:14px}.pend-h{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px}
 
+
+/* ================= стиль Яндекс Еды ================= */
+/* цвета и скругления сняты с eats.yandex.com: фон #F5F4F2, жёлтый #FCE000, текст #21201F, карточки 24px, кнопки 16px */
+body{-webkit-font-smoothing:antialiased}
+.top{background:#fff;border-bottom:0;box-shadow:0 1px 0 rgba(33,32,31,.07)}
+.brand{font-weight:700;letter-spacing:-.2px}
+.brand small{font-weight:400;color:var(--mute)}
+.logo{background:var(--accent);border-radius:12px;color:var(--ink)}
+.logo svg{width:20px;height:20px}
+.btn{border:0;background:var(--gray);border-radius:16px;padding:11px 18px;font-weight:500;min-height:44px;color:var(--ink)}
+.btn:hover{background:rgba(92,90,87,.17)}
+.btn.primary{background:var(--accent)}
+.btn.primary:hover{background:#F0D500;filter:none}
+.btn.sm{padding:8px 14px;min-height:38px;border-radius:12px;font-size:13.5px}
+.btn.ghost{background:transparent}.btn.ghost:hover{background:var(--gray)}
+.btn svg{width:18px;height:18px;flex:none}
+.panel{border:0;border-radius:var(--r);box-shadow:none}
+.side-h{border-bottom:0;padding:16px 16px 10px}
+.chip{border:0;background:var(--gray);color:var(--ink);padding:7px 14px;font-weight:500;font-size:13.5px}
+.chip.on{background:var(--ink);color:#fff}
+.item{border-bottom:0;margin:2px 8px;border-radius:16px;padding:12px 12px}
+.item:hover{background:var(--bg)}
+.item.sel{background:var(--accent-soft);box-shadow:none}
+.item .t b{font-weight:700}
+.ed-head{background:#fff;border-bottom:0;padding:24px 24px 8px}
+.ed-head h2{font-size:26px;letter-spacing:-.5px;line-height:1.1}
+.todo{margin:8px 24px;border:0;border-radius:16px;background:var(--bg);padding:12px 14px}
+.todo.done{background:var(--ok-soft);color:#046b3d}
+.todo .tag{background:#fff;border:0;padding:4px 12px}
+.sec{padding:26px 24px;border-bottom:0}
+.sec+.sec,.mark+.sec{border-top:8px solid var(--bg)}
+.sec h3{font-size:20px;letter-spacing:-.4px;gap:10px}
+.sec h3 .num{background:var(--accent);color:var(--ink);border-radius:50%;width:28px;height:28px;font-size:13px;font-weight:700}
+.sec .lead{color:var(--mute)}
+label.f{font-weight:500;font-size:14px;margin-bottom:6px}
+input[type=text],input[type=number],input[type=url],select,textarea{background:var(--bg);border:2px solid transparent;border-radius:16px;padding:12px 14px}
+input:focus,select:focus,textarea:focus{background:#fff;border-color:var(--accent);box-shadow:none}
+.bad{border-color:var(--err)!important;background:#FFF6F3}
+.good{border-color:transparent}
+.q{background:var(--gray);color:var(--ink)}
+.sg{border:0;background:var(--bg);border-radius:16px}
+.sg:hover{background:var(--accent-soft)}
+.sg.cur{background:var(--ok-soft);box-shadow:inset 0 0 0 2px var(--ok)}
+.sg code{background:#fff;border-radius:8px}
+.badge{background:var(--gray);color:var(--ink)}
+.badge.best{background:var(--accent);color:var(--ink)}
+.pill{border:0;background:var(--gray);padding:6px 14px;font-weight:500}
+.pill:hover{background:var(--accent-soft)}
+.ph{border:0;background:var(--bg);border-radius:20px}
+.ph .img{background-color:#fff;border-radius:14px}
+.ph .x{background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.15)}
+details.more{border:0;background:var(--bg);border-radius:16px}
+.mark{margin:12px 24px;padding:18px 20px;background:var(--accent-soft);border:0;border-radius:20px}
+.mark.bad{background:var(--err-soft)}
+.seg button{border:0;background:var(--gray);border-radius:16px;min-height:50px;font-weight:500}
+.seg button:hover{background:rgba(92,90,87,.17)}
+.seg button.on.yes{background:var(--ink);color:#fff}
+.seg button.on.no{background:var(--ok-soft);color:#046b3d;box-shadow:inset 0 0 0 2px var(--ok)}
+.bar{border-top:0;box-shadow:0 -10px 30px rgba(33,32,31,.08)}
+.pbar{height:6px;background:var(--gray)}
+.pbar>i{background:var(--ok)}
+.ring{background:conic-gradient(var(--ok) calc(var(--p)*1%),rgba(92,90,87,.12) 0)}
+.modal{background:rgba(33,32,31,.5)}
+.mbox{border-radius:28px;box-shadow:none}
+.toast{background:var(--ink);border-radius:16px}
+.hello{background:var(--accent)!important;color:var(--ink);border:0}
+.hello h1{letter-spacing:-.4px}
+.hello p{color:rgba(33,32,31,.8)}
+.hello .step{background:rgba(255,255,255,.55)!important;border:0!important}
+.hello .xbtn{color:var(--ink)}
+.empty{color:var(--mute)}
+
+@media(max-width:1100px){.top .btn .lb{display:none}.top .btn{padding:11px 14px}.partner label{display:none}.partner input{width:200px}}
 /* ================= телефон ================= */
 .back{display:none}
 .fab{display:none}
@@ -247,18 +320,18 @@ kbd{background:#f1f0ea;border:1px solid var(--line);border-bottom-width:2px;bord
 </head>
 <body>
 <header class="top"><div class="top-in">
-  <div class="brand"><div class="logo">🛒</div><div>Конструктор карточек<small>Яндекс Еда · Магазины</small></div></div>
+  <div class="brand"><div class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h18l-1.6 9.2a2 2 0 0 1-2 1.8H6.6a2 2 0 0 1-2-1.8L3 9z"/><path d="M8 9l3-5M16 9l-3-5"/></svg></div><div>Конструктор карточек<small>Яндекс Еда · Магазины</small></div></div>
   <div class="grow"></div>
   <div class="partner"><label class="mini" for="partner">Ваш магазин</label><input type="text" id="partner" placeholder="Название магазина или сети"></div>
-  <button class="btn" id="bImport" title="Загрузите свой прайс-лист или ранее скачанный файл">📂 <span class="lb">Загрузить Excel</span></button>
-  <button class="btn primary" id="bExport">⬇ <span class="lb">Скачать Excel</span></button>
+  <button class="btn" id="bImport" title="Загрузите свой прайс-лист или ранее скачанный файл"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V5m0 0L8 9m4-4l4 4M5 20h14"/></svg><span class="lb">Загрузить Excel</span></button>
+  <button class="btn primary" id="bExport"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg><span class="lb">Скачать Excel</span></button>
   <input type="file" id="file" accept=".xlsx,.xls,.csv,.tsv,.txt,.json" class="hidden">
 </div></header>
 
 <main class="wrap">
   <section class="panel hello" id="hello">
-    <div class="hello-tx"><h1>Заполните карточки — получите готовый файл 👋</h1>
-    <p>Добавьте товары или загрузите прайс: подскажем категорию и ИКПУ, проверим фото и штрихкоды. В конце скачайте Excel и отправьте нам. Всё сохраняется само.</p></div>
+    <div class="hello-tx"><h1>Заполните карточки — получите готовый файл</h1>
+    <p>Добавьте товары или загрузите прайс: подскажем категорию и ИКПУ, проверим фото и штрихкоды. В конце скачайте Excel и отправьте нам. Всё сохраняется само</p></div>
     <div class="steps"><div class="step"><b>1. Товары</b>вручную или из Excel</div><div class="step"><b>2. Подсказки</b>категория, ИКПУ, вес</div><div class="step"><b>3. Файл</b>скачайте и отправьте</div></div>
     <button class="xbtn" id="bHideHello" title="Скрыть">×</button>
   </section>
@@ -267,7 +340,7 @@ kbd{background:#f1f0ea;border:1px solid var(--line);border-bottom-width:2px;bord
     <div class="side-h">
       <input type="text" id="search" placeholder="Поиск по названию…">
       <div class="tabs"><span class="chip on" data-f="all" id="fAll">Все</span><span class="chip" data-f="err" id="fErr">Доработать</span><span class="chip" data-f="ok" id="fOk">Готовые</span></div>
-      <div class="row"><button class="btn sm primary" id="bAdd">＋ Новый товар</button><button class="btn sm" id="bPaste">📋 Вставить список</button><button class="btn sm ghost danger" id="bClear">Очистить</button><button class="btn sm hidden" id="bSeed"></button></div>
+      <div class="row"><button class="btn sm primary" id="bAdd">＋ Новый товар</button><button class="btn sm" id="bPaste">Вставить список</button><button class="btn sm ghost danger" id="bClear">Очистить</button><button class="btn sm hidden" id="bSeed"></button></div>
     </div>
     <div class="list" id="list"></div>
   </aside>
@@ -278,9 +351,9 @@ kbd{background:#f1f0ea;border:1px solid var(--line);border-bottom-width:2px;bord
 <button class="fab" id="fabAdd" aria-label="Новый товар">＋</button>
 <div class="bar"><div class="bar-in">
   <div class="prog"><div class="tx" id="progTx"></div><div class="pbar"><i id="progFill"></i></div><div class="mini" id="saveSt" style="margin-top:3px"></div></div>
-  <button class="btn" id="bDraft" title="Сохранить все карточки в файл — на случай, если очистите браузер или откроете форму на другом компьютере">💾 <span class="lb">Скачать черновик</span></button>
-  <button class="btn" id="bCheck">✔ Проверить файл</button>
-  <button class="btn primary" onclick="document.getElementById('bExport').click()">⬇ Скачать Excel</button>
+  <button class="btn" id="bDraft" title="Сохранить все карточки в файл — на случай, если очистите браузер или откроете форму на другом компьютере"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h11l3 3v13H5z"/><path d="M8 4v5h7V4M8 20v-6h8v6"/></svg><span class="lb">Скачать черновик</span></button>
+  <button class="btn" id="bCheck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Проверить файл</button>
+  <button class="btn primary" onclick="document.getElementById('bExport').click()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>Скачать Excel</button>
 </div></div>
 
 <script>/*! xlsx.js (C) 2013-present SheetJS -- http://sheetjs.com */
@@ -607,7 +680,7 @@ const descSugRun = it => {
   const v = descVariants(it);
   if (!v.length){ box.innerHTML = it.name.trim() ? '' : ''; return; }
   const hasDesc = !!it.desc.trim();
-  box.innerHTML = `<div class="mini" style="margin:8px 0 5px">💡 ${hasDesc?'Можно дополнить описание — вот варианты по названию:':'Описание можно начать так — выберите вариант и допишите детали:'}</div><div class="suggest">${v.map((x,i)=>`<div class="sg" style="cursor:default"><div class="nm"><b style="font-size:12px;color:var(--mute)">${esc(x.label)}</b><div>${esc(x.text)}</div></div><div style="display:flex;flex-direction:column;gap:5px"><button class="btn sm" data-dpick="${i}">${hasDesc?'Заменить':'Вставить'}</button>${hasDesc?`<button class="btn sm" data-dadd="${i}">Добавить в конец</button>`:''}</div></div>`).join('')}</div><div class="help">Мы берём только то, что есть в названии. Проверьте и допишите: ${esc(v[0].hints.join(' · '))}.</div>`;
+  box.innerHTML = `<div class="mini" style="margin:8px 0 5px">${hasDesc?'Можно дополнить описание — вот варианты по названию:':'Описание можно начать так — выберите вариант и допишите детали:'}</div><div class="suggest">${v.map((x,i)=>`<div class="sg" style="cursor:default"><div class="nm"><b style="font-size:12px;color:var(--mute)">${esc(x.label)}</b><div>${esc(x.text)}</div></div><div style="display:flex;flex-direction:column;gap:5px"><button class="btn sm" data-dpick="${i}">${hasDesc?'Заменить':'Вставить'}</button>${hasDesc?`<button class="btn sm" data-dadd="${i}">Добавить в конец</button>`:''}</div></div>`).join('')}</div><div class="help">Мы берём только то, что есть в названии. Проверьте и допишите: ${esc(v[0].hints.join(' · '))}.</div>`;
   box._v = v;
 };
 
@@ -809,12 +882,12 @@ function fld(label, req, tip, inner, opt){ return `<label class="f">${label}${re
 
 function renderEditor(){
   const it = cur(); const box = $('#editor');
-  if (!it){ box.innerHTML = `<div class="empty" style="padding:70px 20px"><div style="font-size:42px">🧺</div><h3>Начните с добавления товара</h3><p>Нажмите «＋ Новый товар» или загрузите свой прайс-лист — мы подскажем категорию и налоговый код.</p><button class="btn primary" id="emptyAdd">＋ Новый товар</button></div>`; $('#emptyAdd').onclick = () => addBlank(); return; }
+  if (!it){ box.innerHTML = `<div class="empty" style="padding:70px 20px"><h3>Начните с добавления товара</h3><p>Нажмите «＋ Новый товар» или загрузите свой прайс-лист — мы подскажем категорию и налоговый код.</p><button class="btn primary" id="emptyAdd">＋ Новый товар</button></div>`; $('#emptyAdd').onclick = () => addBlank(); return; }
   const idx = S.items.indexOf(it) + 1;
   box.innerHTML = `
   <div class="ed-head"><button class="btn sm back" id="bBack">← Список</button><div class="ring" id="ring"><i>0%</i></div><h2>Товар ${idx} из ${S.items.length}</h2>
-    <button class="btn sm" id="bDup" title="Скопировать карточку — удобно для других цветов и вариантов">⧉ <span class="lb">Дублировать</span></button>
-    <button class="btn sm danger" id="bDel">🗑 <span class="lb">Удалить</span></button></div>
+    <button class="btn sm" id="bDup" title="Скопировать карточку — удобно для других цветов и вариантов"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M5 15V6.5A1.5 1.5 0 0 1 6.5 5H15"/></svg><span class="lb">Дублировать</span></button>
+    <button class="btn sm danger" id="bDel" title="Удалить товар"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M10 11v6m4-6v6M6 7l1 12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-12M9 7V4h6v3"/></svg><span class="lb">Удалить</span></button></div>
   <div class="todo" id="todo"></div>
   <div class="mark" data-fld="marking"><div class="mark-t"><b>Маркируемый товар?</b><span class="badge best">важно</span>${q_('По шаблону — для напитков, молочной продукции и других товаров, у которых есть код маркировки (Data Matrix на упаковке). Для электроники и аксессуаров обычно «Нет». Если не уверены — уточните у поставщика.')}</div><div class="seg" id="mkSeg"><button type="button" data-mk="Да" class="${it.marking==='Да'?'on yes':''}">Да, маркируется</button><button type="button" data-mk="Нет" class="${it.marking==='Нет'?'on no':''}">Нет, не маркируется</button></div><div class="help">Нужно выбрать обязательно — от этого зависит, сканирует ли сборщик код маркировки при сборке заказа.</div><div data-msg="marking"></div></div>
 
@@ -825,7 +898,7 @@ function renderEditor(){
     <div class="c4">${fld('Категория 1 уровня',1,'Впишите любую категорию, какая нужна вам. Список подсказок не обязателен — это только помощь: можно выбрать из него или написать своё название.',`<input type="text" list="dl1" data-fld="cat1" data-k="cat1" placeholder="электроника" value="${esc(it.cat1)}"><div data-msg="cat1"></div>`)}</div>
     <div class="c4">${fld('Категория 2 уровня',0,'Подгруппа, например «наушники». Можно написать любую свою.',`<input type="text" list="dl2" data-k="cat2" placeholder="наушники" value="${esc(it.cat2)}">`,1)}</div>
     <div class="c4">${fld('Категория 3 уровня',0,'Самый точный уровень, если он есть. Можно написать любую свою.',`<input type="text" list="dl3" data-k="cat3" value="${esc(it.cat3)}">`,1)}</div>
-    <div class="c12"><div class="help" style="margin-top:-6px">✎ Категории можно писать свои — выбирать из подсказок не обязательно. Всё, что вы вписали, запомнится и будет предлагаться в других карточках.</div></div>
+    <div class="c12"><div class="help" style="margin-top:-6px">Категории можно писать свои — выбирать из подсказок не обязательно. Всё, что вы вписали, запомнится и будет предлагаться в других карточках.</div></div>
     <div class="c6">${fld('Производитель / бренд',0,'Если бренда нет — нажмите «Нет бренда».',`<input type="text" data-k="brand" value="${esc(it.brand)}"><div class="pills"><span class="pill" data-set="brand" data-v="Нет бренда">Нет бренда</span></div>`,1)}</div>
     <div class="c6">${fld('Страна производства',0,'Указывайте только если точно знаете. Если не уверены — оставьте пустым.',`<input type="text" data-k="country" list="dlc" value="${esc(it.country)}">`,1)}</div>
    </div></div>
@@ -835,17 +908,17 @@ function renderEditor(){
     <div class="c4">${fld('Общий вес',1,'Вес одной единицы товара вместе с упаковкой. Для техники — как в паспорте (например 0.1 кг). Если не знаете — взвесьте или посмотрите на коробке.',`<input type="text" inputmode="decimal" data-fld="weight" data-k="weight" placeholder="0.1" value="${esc(it.weight)}"><div id="wSug"></div><div data-msg="weight"></div>`)}</div>
     <div class="c4">${fld('Единица измерения',1,'г, кг, мл или л. Для большинства товаров — кг.',`<select data-fld="unit" data-k="unit">${UNITS.map(u=>`<option ${u===it.unit?'selected':''}>${u}</option>`).join('')}</select>`)}</div>
     <div class="c4">${fld('Цена, сум',1,'Цена в магазине за одну штуку, без пробелов и копеек.',`<input type="text" inputmode="numeric" data-fld="price" data-k="price" placeholder="150000" value="${esc(it.price)}"><div data-msg="price"></div>`)}</div>
-    <div class="c12">${fld('Описание товара',0,'2–5 предложений: что это, для чего, главные характеристики, комплектация. Без эмодзи и рекламных лозунгов.',`<textarea data-k="desc" data-fld="desc" placeholder="Например: Беспроводные наушники с Bluetooth 5.3, шумоподавлением и зарядным кейсом. Работают до 5 часов, подходят для iPhone и Android.">${esc(it.desc)}</textarea><div class="inline" style="margin-top:6px"><span class="mini" id="dcnt"></span><span style="flex:1"></span><button class="btn sm" id="bSugDesc">💡 Предложить описание</button><button class="btn sm" id="bClean">✨ Очистить от лишних символов</button></div><div id="descSug"></div><div data-msg="desc"></div>`,1)}</div>
+    <div class="c12">${fld('Описание товара',0,'2–5 предложений: что это, для чего, главные характеристики, комплектация. Без эмодзи и рекламных лозунгов.',`<textarea data-k="desc" data-fld="desc" placeholder="Например: Беспроводные наушники с Bluetooth 5.3, шумоподавлением и зарядным кейсом. Работают до 5 часов, подходят для iPhone и Android.">${esc(it.desc)}</textarea><div class="inline" style="margin-top:6px"><span class="mini" id="dcnt"></span><span style="flex:1"></span><button class="btn sm" id="bSugDesc">Предложить описание</button><button class="btn sm" id="bClean">Очистить от лишних символов</button></div><div id="descSug"></div><div data-msg="desc"></div>`,1)}</div>
    </div></div>
 
   <div class="sec"><h3><span class="num">3</span>Фото</h3><p class="lead">Прямые ссылки на фото (JPG или PNG), минимум 800×600 пикселей. Первое фото — главное. Нет ссылок? Загрузите фото с компьютера или телефона (можно сразу снять камерой) — мы переделаем их в JPG, загрузим на postimages.org и сами вставим прямую ссылку.</p>
    <div data-fld="images"></div><div id="photos" class="photos"></div>
-   <div class="inline" style="margin-top:10px;flex-wrap:wrap"><button class="btn sm" id="bAddPh">＋ Добавить ссылку</button><button class="btn sm" id="bPastePh">📋 Вставить несколько ссылок</button><button class="btn sm primary" id="bUpPh">📷 Загрузить фото</button><input type="file" id="upPh" accept="image/*" multiple class="hidden"></div><div id="pending" class="pending"></div>
+   <div class="inline" style="margin-top:10px;flex-wrap:wrap"><button class="btn sm" id="bAddPh">＋ Добавить ссылку</button><button class="btn sm" id="bPastePh">Вставить несколько ссылок</button><button class="btn sm primary" id="bUpPh">Загрузить фото</button><input type="file" id="upPh" accept="image/*" multiple class="hidden"></div><div id="pending" class="pending"></div>
    <div class="help">Фото, загруженные через форму, отправляются на postimages.org и открываются по прямой ссылке — как в инструкции по заполнению. Вручную: загрузите фото на <a href="https://postimages.org" target="_blank" rel="noopener">postimages.org</a> и скопируйте «Прямая ссылка» (Direct link), либо возьмите ссылку на фото с сайта магазина (правый клик → «Копировать адрес изображения»).</div><div data-msg="images"></div></div>
 
   <div class="sec"><h3><span class="num">4</span>Налоговый код (ИКПУ)</h3><p class="lead">Мы ищем подходящий код в официальном справочнике <a href="https://tasnif.soliq.uz" target="_blank" rel="noopener">tasnif.soliq.uz</a> по названию вашего товара. Выберите самый точный — или введите свой, мы проверим.</p>
    <div class="grid">
-    <div class="c12"><div class="inline"><button class="btn sm" id="bTax">🔎 Подобрать по названию</button><span class="mini" id="taxState"></span></div><div id="taxSug" class="suggest"></div></div>
+    <div class="c12"><div class="inline"><button class="btn sm" id="bTax">Подобрать по названию</button><span class="mini" id="taxState"></span></div><div id="taxSug" class="suggest"></div></div>
     <div class="c6">${fld('ИКПУ товара',1,'17 цифр. Например, для наушников — 08518002001000000. Код присваивается группе товаров в каталоге soliq.uz.',`<input type="text" inputmode="numeric" data-fld="tax" data-k="tax" maxlength="17" placeholder="17 цифр" value="${esc(it.tax)}"><div id="taxInfo"></div><div data-msg="tax"></div>`)}</div>
     <div class="c6">${fld('Код упаковки',1,'Берётся из справочника вместе с ИКПУ. После выбора ИКПУ ниже появятся доступные варианты — нажмите на подходящий.',`<input type="text" inputmode="numeric" data-fld="pack" data-k="pack" placeholder="например 1659297" value="${esc(it.pack)}"><div id="packPills" class="pills"></div><div data-msg="pack"></div>`)}</div>
    </div></div>
@@ -886,13 +959,13 @@ function refreshDeps(it){
 }
 function renderTips(it){
   const t = nameTips(it.name);
-  $('#nameTips').innerHTML = it.name.trim() ? t.map(([k,m]) => `<div class="msg ${k}">${k==='ok'?'✓':k==='warn'?'⚠':'💡'} ${esc(m)}</div>`).join('') : `<div class="help">Пример: «Наушники беспроводные Redmi Buds 6 Lite, чёрные»</div>`;
+  $('#nameTips').innerHTML = it.name.trim() ? t.map(([k,m]) => `<div class="msg ${k}">${k==='ok'?'✓':k==='warn'?'!':'i'} ${esc(m)}</div>`).join('') : `<div class="help">Пример: «Наушники беспроводные Redmi Buds 6 Lite, чёрные»</div>`;
 }
 const catSugRun = debounce(it => {
   const box = $('#catSug'); if (!box || cur() !== it) return;
   if (it.name.trim().length < 4){ box.innerHTML = ''; return; }
   const sg = suggestCat(it.name); const show = sg.filter(s => !(it.cat1 === s.c[0] && it.cat2 === s.c[1] && it.cat3 === s.c[2]));
-  box.innerHTML = sg.length ? `<div class="mini" style="margin-bottom:5px">💡 Похожие товары из базы команды лежат в категориях:</div><div class="pills">${show.map((s,i)=>`<span class="pill" data-cat="${S_idx(sg,s)}">${esc(s.c.filter(Boolean).join(' › '))}${s.wMed?` · вес обычно ${s.wMed} кг`:''}</span>`).join('')}</div>` : '';
+  box.innerHTML = sg.length ? `<div class="mini" style="margin-bottom:5px">Похожие товары из базы команды лежат в категориях:</div><div class="pills">${show.map((s,i)=>`<span class="pill" data-cat="${S_idx(sg,s)}">${esc(s.c.filter(Boolean).join(' › '))}${s.wMed?` · вес обычно ${s.wMed} кг`:''}</span>`).join('')}</div>` : '';
   box._sg = sg;
 }, 500);
 const S_idx = (arr, x) => arr.indexOf(x);
@@ -922,7 +995,7 @@ async function runTax(it, manual){
   let r; try { r = await suggestTax(it.name); } catch(e){ r = {list:[], govFailed:true}; }
   if (my !== taxRun || cur() !== it) return;
   st.innerHTML = r.govFailed ? '<span style="color:var(--warn)">Справочник soliq.uz недоступен — показаны коды из базы команды</span>' : '';
-  if (!r.list.length){ box.innerHTML = '<div class="msg info">💡 Подходящих кодов не нашли. Попробуйте <a href="https://tasnif.soliq.uz" target="_blank" rel="noopener">найти вручную на tasnif.soliq.uz</a> и вставить код в поле ниже.</div>'; return; }
+  if (!r.list.length){ box.innerHTML = '<div class="msg info">Подходящих кодов не нашли. Попробуйте <a href="https://tasnif.soliq.uz" target="_blank" rel="noopener">найти вручную на tasnif.soliq.uz</a> и вставить код в поле ниже.</div>'; return; }
   box.innerHTML = r.list.map((c,i) => `<button class="sg ${it.tax===c.code?'cur':''}" data-tax="${c.code}"><code>${c.code}</code><div class="nm">${esc(c.name||'—')}<div class="badges">${i===0?'<span class="badge best">лучшее совпадение</span>':''}${c.gov?'<span class="badge gov">справочник soliq.uz</span>':''}${c.team?`<span class="badge team">${c.team} карточек в базе команды</span>`:''}</div></div></button>`).join('');
 }
 async function applyTax(it, code){
@@ -1056,7 +1129,7 @@ function init(){
   const SEED = window.SEED_ITEMS || [];
   if (SEED.length){
     if (S.items.every(isEmpty)){ S.items = SEED.map(blank); S.sel = S.items[0].id; save(); setTimeout(() => toast('Загружены товары из файла: ' + SEED.length), 500); }
-    const bs = $('#bSeed'); bs.classList.remove('hidden'); bs.textContent = '📥 Вернуть товары из файла (' + SEED.length + ')';
+    const bs = $('#bSeed'); bs.classList.remove('hidden'); bs.textContent = 'Вернуть товары из файла (' + SEED.length + ')';
     bs.onclick = () => { const have = new Set(S.items.map(i => i.barcode).filter(Boolean)); const add = SEED.filter(x => !have.has(x.barcode)).map(blank); if (!add.length) return toast('Все товары из файла уже в списке'); addItems(add); toast('Добавлено товаров: ' + add.length); };
   }
   $('#partner').value = S.partner;
