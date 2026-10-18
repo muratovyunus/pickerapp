@@ -804,9 +804,9 @@ function renderPending(it){
 
 /* ================= импорт ================= */
 const HMAP = [
- [/название категории 1|категория 1/,'cat1'],[/название категории 2|категория 2/,'cat2'],[/название категории 3|категория 3/,'cat3'],
+ [/название категории 1|категория 1|^категория( товара)?$|^группа( товаров)?$|^раздел$|^вид товара$/,'cat1'],[/название категории 2|категория 2/,'cat2'],[/название категории 3|категория 3/,'cat3'],
  [/^название позиции|^название|^наименование|^товар|^продукт|^номенклатура/,'name'],[/общий вес|^вес/,'weight'],[/единица измерения|^ед\.? ?изм/,'unit'],[/квантовка/,'kvant'],[/^цена|^нарх|^price/,'price'],
- [/описание/,'desc'],[/производитель|^бренд/,'brand'],[/^страна/,'country'],[/штрихкод|^ean|^gtin|^barcode/,'barcode'],[/ссылки на картинки|^фото|картин|изображен/,'images'],
+ [/описание/,'desc'],[/производитель|^бренд/,'brand'],[/^страна/,'country'],[/штрих.?код|баркод|^ean|^gtin|^barcode/,'barcode'],[/ссылки на картинки|^фото|картин|изображен/,'images'],
  [/налоговый код товара|икпу|mxik/,'tax'],[/налоговый код упаковки|код упаковки/,'pack'],[/акциз/,'excise'],[/маркируем/,'marking'],[/для взрослых|18\+/,'adult'],[/кол-во товаров в упаковке|количество в упаковке/,'qty']
 ];
 function importRows(aoa){
@@ -819,9 +819,13 @@ function importRows(aoa){
     if (!r || !r.some(c => String(c||'').trim())) continue;
     const g = k => (k in map) ? String(r[map[k]]==null?'':r[map[k]]).trim() : '';
     const it = blank({cat1:g('cat1'),cat2:g('cat2'),cat3:g('cat3'),name:g('name'),weight:g('weight'),unit:UNITS.includes(g('unit'))?g('unit'):'кг',kvant:g('kvant'),price:g('price').replace(/\s/g,''),desc:g('desc'),brand:g('brand'),country:g('country'),barcode:g('barcode').replace(/\.0$/,''),images:g('images').split(/[,\s;]+(?=https?:)/).filter(Boolean),tax:g('tax').replace(/\.0$/,''),pack:g('pack').replace(/\.0$/,''),excise:g('excise'),marking:g('marking'),adult:/^(1|да|true)$/i.test(g('adult')),qty:g('qty')});
+    ['cat1','cat2','cat3'].forEach(k => { if (it[k]) it[k] = it[k].toLowerCase(); });
     if (it.name || it.price) out.push(it);
   }
-  return out;
+  const seen = new Set(), uniq = [];
+  for (const it of out){ const key = [it.name, it.barcode, it.price].join('|'); if (it.name && seen.has(key)) continue; seen.add(key); uniq.push(it); }
+  uniq.skipped = out.length - uniq.length;
+  return uniq;
 }
 function importFile(file){
   const rd = new FileReader();
@@ -837,7 +841,7 @@ function importFile(file){
       }
       const items = importRows(aoa);
       if (!items.length){ toast('Не нашла товаров в файле — проверьте, что есть колонка с названиями'); return; }
-      addItems(items); toast('Загружено товаров: ' + items.length);
+      addItems(items); toast('Загружено товаров: ' + items.length + (items.skipped ? ' · одинаковых строк пропущено: ' + items.skipped : ''));
     } catch(e){ console.error(e); toast('Не получилось прочитать файл: ' + e.message); }
   };
   if (/\.(csv|txt|tsv|json)$/i.test(file.name)) rd.readAsText(file); else rd.readAsArrayBuffer(file);
